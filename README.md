@@ -4,7 +4,16 @@
 
 This Flutter application demonstrates API integration, state management, local persistence, and in-app browsing with history tracking.
 
-The app fetches product data from FakeStoreAPI and allows users to interact with products through like/dislike functionality. It also includes an in-app WebView with persistent browsing history.
+The app fetches product data from FakeStoreAPI and allows users to interact with products using a persistent like/dislike system. It also includes an in-app WebView with persistent browsing history.
+
+---
+
+## API Source
+
+Product data is fetched from:
+https://fakestoreapi.com/products
+
+The API provides product details including id, title, price, description, category, and image.
 
 ---
 
@@ -53,15 +62,17 @@ Hive was used for local storage because:
 
 The app follows a feature-based folder structure:
 
+```
 lib/
-- core/
-- services/
-- features/
-  - products/
-  - browser/
-  - history/
+ ├── core/
+ ├── services/
+ ├── features/
+ │    ├── products/
+ │    ├── browser/
+ │    └── history/
+ ```
 
-This structure keeps business logic separated from UI and improves maintainability.
+Business logic is separated from UI using providers and service layers to maintain scalability.
 
 ---
 
@@ -93,6 +104,16 @@ This structure keeps business logic separated from UI and improves maintainabili
 
 1. Clone the repository
 2. Run `flutter pub get`
-3. Run `flutter run`
+3. Run `flutter run` (Android emulator recommended)
+
+To build release APK:
+
+```flutter build apk --release```
 
 APK file is included in submission.
+
+---
+
+## Platform Notes
+
+The WebView feature was tested primarily on Android, as WebView support is limited on Windows desktop. All browsing and history tracking functionality was validated using the Android emulator and release APK.
